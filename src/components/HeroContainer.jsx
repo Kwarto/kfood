@@ -22,10 +22,10 @@ const HeroContainer = () => {
            In Town
           </span>
         </p>
-        <p className="text-base text-textColor text-center text-[1.2rem] md:text-left lg:w-[90%]">
+        <p className="text-base text-textColor text-center text-[18px] md:text-left lg:w-[90%]">
           Lorem ipsum dolor, sit amet consectetur adipisicing elit. Possimus
           perferendis earum distinctio excepturi saepe ascent ipsam nulla. Odio
-          facilis autem expedita asperiores, enim esse! Delectus.
+          facilis.
         </p>
         <button
           type="button"
@@ -37,9 +37,9 @@ const HeroContainer = () => {
         <div className="py-2 ml-auto h-510 lg:w-[60%] grid grid-cols-2 items-center gap-2 bg-gradient-to-tr from-red-100 to-fuchsia-100  rounded-3xl">
           {heroData &&
             heroData.map((n) => (
-              <div key={n.id} className="w-190 min-w-[200px]: p-2 flex flex-col item-center justify-center lg:-translate-x-12 lg:translate-y-8 translate-y-8">
+              <div key={n.id} className="w-190 min-w-[200px]: p-2 flex flex-col item-center justify-center lg:-translate-x-16 lg:translate-y-8 translate-y-8">
                 <div className="flex flex-col items-center justify-center bg-cardOverlay backdrop-blur-md rounded-xl p-2">
-                <img src={n.imgSrc} className="w-[100%] -mt-20 rounded-md" alt="" />
+                <img src={n.imgSrc} className="w-[100%] -mt-20 rounded-md shadow-md" alt="" />
                 <p className="text-base font-semibold text-textColor">{n.name}</p>
                 <p className='text-sm text-center text-lighttextGray font-semibold my-3'>{n.desc}</p>
                 <p className='text-sm text-headingColor font-semibold'>
