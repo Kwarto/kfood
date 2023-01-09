@@ -23,9 +23,7 @@ const HeroContainer = () => {
           </span>
         </p>
         <p className="text-base text-textColor text-center text-[18px] md:text-left lg:w-[90%]">
-          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Possimus
-          perferendis earum distinctio excepturi saepe ascent ipsam nulla. Odio
-          facilis.
+         Foodad is the best in town food delivery company in ghana. We make sure that your order is to your satisfaction and you receive what you ordered each time
         </p>
         <button
           type="button"
