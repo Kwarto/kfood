@@ -4,7 +4,7 @@ import { heroData } from '../utils/data';
 
 const HeroContainer = () => {
   return (
-    <section className="grid grid-cols-1 md:grid-cols-2 gap-2 w-full">
+    <section className="bg-primary grid grid-cols-1 md:grid-cols-2 gap-2 w-full md:px-16 px-4 py-4">
       <div className="py-2 flex-1 flex flex-col items-start justify-center gap-5">
         <div className="flex items-center justify-center gap-3 bg-red-200 px-4 py-1 rounded-full">
           <p className="text-base text-textRed font-semibold">Bike Delivery</p>

@@ -62,11 +62,11 @@ const Header = () => {
                 Home
               </li>
             </Link>
-            <Link to={'/menu'}>
+            <Link to={'/kitchens'}>
               <li
                 className="text-base text-textColor cursor-pointer hover:text-headingColor duration-100 transition-all ease-in-out"
                 onClick={() => setIsMenu(false)}>
-                Menu
+                Kitchens
               </li>
             </Link>
             <Link to={'/services'}>
@@ -169,11 +169,11 @@ const Header = () => {
                     Home
                   </li>
                 </Link>
-                <Link to={'/menu'}>
+                <Link to={'/kitchens'}>
                   <li
                     className="text-base px-4 py-2 text-textColor cursor-pointer hover:text-headingColor hover:bg-slate-100 duration-100 transition-all ease-in-out"
                     onClick={() => setIsMenu(!isMenu)}>
-                    Menu
+                   Kitchens
                   </li>
                 </Link>
                 <Link to={'/services'}>
