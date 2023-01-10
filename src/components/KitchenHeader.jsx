@@ -1,8 +1,8 @@
 import React from 'react';
 import { MdCheckBox, MdFastfood } from 'react-icons/md';
-import bannerImg from '../img/banner.png';
+import bannerImg from '../img/banner-2.png';
 import { mostData } from '../utils/data';
-import Category from './Category';
+import {Category} from '../components';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import { FaMapPin } from 'react-icons/fa';
@@ -35,15 +35,15 @@ const KitchenHeader = () => {
         <button className="mt-3 bg-white px-8 py-2 shadow-sm text-textColor rounded-full">
           Explore
         </button>
-        <div className="md:w-[20%] w-[50%] md:drop-shadow-md absolute md:right-1 md:-top-1 -right-9 top-12 ">
+        <div className="md:w-[20%] w-[50%] md:drop-shadow-md absolute md:right-1 md:top-4 -right-9 top-12 ">
           <img
             className="md:rounded-none rounded-full w-full h-full"
             src={bannerImg}
-            alt=""
+            alt="top-banner"
           />
         </div>
       </div>
-      <div className="bg-gradient-to-tr from-red-200 to-fuchsia-200 min-h-auto mt-10 md:px-16 px-4  place-items-center md:rounded-none rounded-b-[3rem] shadow-sm">
+      <div className="bg-gradient-to-tr from-red-200 to-fuchsia-200 min-h-auto mt-10 md:px-16 px-4  place-items-center md:rounded-none rounded-b-[2rem] shadow-sm">
         <h1 className="md:text-[2rem] text-[1.5rem] font-bold py-1 text-headingColor">
           Most Popular
         </h1>
@@ -71,6 +71,7 @@ const KitchenHeader = () => {
                       </span>
                       <p className="text-[14px] w-full text-textColor text-center py-2">
                         {m.desc}
+                        <p className='font-semibold text-[14px]'>{ m.food.name}</p>
                       </p>
                       <span className="flex items-center justify-between gap-4">
                         <p className="text-green-500 text-base font-semibold flex items-center gap-1">
@@ -91,9 +92,6 @@ const KitchenHeader = () => {
             })}
         </Swiper>
       </div>
-      <section className='w-full min-h-[80vh] py-4 md:px-16 px-4'>
-        <h1 className='font-bold md:text-[2rem] text-[1.5rem] text-headingColor py-2'>Available Kitchens</h1>
-      </section>
     </>
   );
 };

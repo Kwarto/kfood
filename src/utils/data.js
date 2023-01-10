@@ -78,7 +78,11 @@ export const mostData = [
         desc: 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Assumenda numquam aspernatur laudantium labore, vitae aperiam cumque itaque officia.',
         priceAt: 15,
         imgSrc: staticImg2,
-        loc: 'Kwadaso Opt. Shell'
+        loc: 'Kwadaso Opt. Shell',
+        food:         
+            {
+                name: 'Jollof Rice | Fried Rice | Banku | Pastries'
+            }
     },
     {
         id: 2,
@@ -86,7 +90,11 @@ export const mostData = [
         desc: 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Assumenda numquam aspernatur laudantium labore, vitae aperiam cumque itaque officia.',
         priceAt: 15,
         imgSrc: staticImg2,
-        loc: 'Kwadaso Opt. Shell'
+        loc: 'Kwadaso Opt. Shell',
+        food:
+            {
+                name: 'Jollof Rice | Fried Rice | Banku | Pastries'
+            }
     },
     {
         id: 3,
@@ -94,7 +102,11 @@ export const mostData = [
         desc: 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Assumenda numquam aspernatur laudantium labore, vitae aperiam cumque itaque officia.',
         priceAt: 15,
         imgSrc: staticImg2,
-        loc: 'Kwadaso Opt. Shell'
+        loc: 'Kwadaso Opt. Shell',
+        food:
+            {
+                name: 'Jollof Rice | Fried Rice | Banku | Pastries'
+            }
     },
     {
         id: 4,
@@ -102,7 +114,11 @@ export const mostData = [
         desc: 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Assumenda numquam aspernatur laudantium labore, vitae aperiam cumque itaque officia.',
         priceAt: 15,
         imgSrc: staticImg2,
-        loc: 'Kwadaso Opt. Shell'
+        loc: 'Kwadaso Opt. Shell',
+        food:
+            {
+                name: 'Jollof Rice | Fried Rice | Banku | Pastries'
+            }
     },
     {
         id: 5,
@@ -110,6 +126,10 @@ export const mostData = [
         desc: 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Assumenda numquam aspernatur laudantium labore, vitae aperiam cumque itaque officia.',
         priceAt: 15,
         imgSrc: staticImg2,
-        loc: 'Kwadaso Opt. Shell'
+        loc: 'Kwadaso Opt. Shell',
+        food: 
+            {
+                name: 'Jollof Rice | Fried Rice | Banku | Pastries'
+            }
     },
 ]
