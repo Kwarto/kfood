@@ -4,7 +4,9 @@ import bannerImg from '../img/banner-2.png';
 import { mostData } from '../utils/data';
 import {Category} from '../components';
 import { Swiper, SwiperSlide } from 'swiper/react';
+import { Pagination } from 'swiper';
 import 'swiper/css';
+import 'swiper/css/pagination';
 import { FaMapPin } from 'react-icons/fa';
 const KitchenHeader = () => {
   return (
@@ -48,8 +50,10 @@ const KitchenHeader = () => {
           Most Popular
         </h1>
         <Swiper
+          modules={[Pagination]}
           spaceBetween={40}
           //  slidesPerView={}
+          pagination={{clickable: true}}
           breakpoints={{ 430: { slidesPerView: 2 }, 768: { slidesPerView: 3 } }}
           className="w-full h-full flex items-center justify-center">
           {mostData &&
@@ -73,7 +77,7 @@ const KitchenHeader = () => {
                         {m.desc}
                         <p className='font-semibold text-[14px]'>{ m.food.name}</p>
                       </p>
-                      <span className="flex items-center justify-between gap-4">
+                      <span className="flex items-center justify-between gap-[3px]">
                         <p className="text-green-500 text-base font-semibold flex items-center gap-1">
                           {' '}
                           <MdCheckBox /> GHC {m.priceAt} Upwards

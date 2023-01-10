@@ -5,7 +5,7 @@ import enjoyImg from '../img/enjoy.svg'
 const HomeSection = () => {
   return (
     <div className="w-full h-auto md:mt-12 rounded-md md:px-16 px-4 py-8">
-      <h1 className='text-[2.2rem] text-center pb-5 text-headingColor font-bold '>Spin Your Energy For<br /> <span className='text-[2.3rem] text-center text-textRed'>Good Day Service</span></h1>
+      <h1 className='text-[2rem] text-center pb-5 text-headingColor font-bold '>Spin Your Energy For <br /> <span className='text-[2rem] text-center text-textRed'>Good Day Service</span></h1>
       <div className="grid md:grid-cols-3 item-center gap-2">
         <div className="shadow-md p-2 rounded-xl w-full flex flex-1 flex-col items-center justify-center ">
           <img className='w-[50%] h-[50%]'  src={chooseImg} alt="choose" />
