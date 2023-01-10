@@ -36,7 +36,7 @@ const HeroContainer = () => {
           {heroData &&
             heroData.map((n) => (
               <div key={n.id} className="w-190 min-w-[200px]: p-2 flex flex-col item-center justify-center lg:-translate-x-16 lg:translate-y-8 translate-y-8">
-                <div className="flex flex-col items-center justify-center bg-cardOverlay backdrop-blur-md rounded-xl p-2">
+                <div className="flex flex-col items-center justify-center bg-cardOverlay backdrop-blur-md rounded-xl p-2 hover:bg-white transition-all duration-200 ease-in-out">
                 <img src={n.imgSrc} className="w-[100%] -mt-20 rounded-md shadow-md" alt="" />
                 <p className="text-base font-semibold text-textColor">{n.name}</p>
                 <p className='text-sm text-center text-lighttextGray font-semibold my-3'>{n.desc}</p>

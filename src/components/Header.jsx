@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { FaPlus } from 'react-icons/fa';
 import { MdLogout, MdShoppingBasket } from 'react-icons/md';
+import { FaUser } from 'react-icons/fa';
 import Logo from '../img/logo.jpg';
 import Avatar from '../img/avatar.png';
 import { motion } from 'framer-motion';
@@ -11,6 +12,7 @@ import { useStateValue } from '../context/StateProvider';
 import { actionType } from '../context/reducer';
 const Header = () => {
   const [isMenu, setIsMenu] = useState(false);
+  const [isKitchen, setIsKitchen] = useState(false);
   const firebaseAuth = getAuth(app);
   const provider = new GoogleAuthProvider();
 
@@ -50,56 +52,86 @@ const Header = () => {
           />
         </Link>
         <div className="flex items-center justify-center gap-8">
-          <motion.ul
-            initial={{ opacity: 0, x: 200 }}
-            animate={{ opacity: 1, x: 0 }}
-            exit={{ opacity: 0, x: 200 }}
-            className="flex items-center gap-8">
-            <Link to={'/'}>
-              <li
-                className="text-base text-textColor cursor-pointer hover:text-headingColor duration-100 transition-all ease-in-out"
-                onClick={() => setIsMenu(false)}>
-                Home
-              </li>
-            </Link>
-            <Link to={'/kitchens'}>
-              <li
-                className="text-base text-textColor cursor-pointer hover:text-headingColor duration-100 transition-all ease-in-out"
-                onClick={() => setIsMenu(false)}>
-                Kitchens
-              </li>
-            </Link>
-            <Link to={'/services'}>
-              <li
-                className="text-base text-textColor cursor-pointer hover:text-headingColor duration-100 transition-all ease-in-out"
-                onClick={() => setIsMenu(false)}>
-                Services
-              </li>
-            </Link>
-            <Link to={'/about'}>
-              <li
-                className="text-base text-textColor cursor-pointer hover:text-headingColor duration-100 transition-all ease-in-out"
-                onClick={() => setIsMenu(false)}>
-                About Us
-              </li>
-            </Link>
-          </motion.ul>
-          <div className="relative flex items-center justify-center">
-            {user && (
-              <>
-                <MdShoppingBasket className="text-textColor text-2xl cursor-pointer" />
-              <div className="absolute -top-2 -right-2 w-5 h-5 rounded-full bg-cartNumBg flex items-center justify-center">
-                <p className="text-xs text-white font-semibold">2</p>
-              </div>
-              </>
-            )}
-          </div>
+          {!isKitchen && (
+            <motion.ul
+              initial={{ opacity: 0, x: 200 }}
+              animate={{ opacity: 1, x: 0 }}
+              exit={{ opacity: 0, x: 200 }}
+              className="flex items-center gap-8">
+              <Link to={'/'}>
+                <li
+                  className="text-base text-textColor cursor-pointer hover:text-headingColor duration-100 transition-all ease-in-out"
+                  onClick={() => setIsMenu(false)}>
+                  Home
+                </li>
+              </Link>
+              <Link to={'/kitchens'} onClick={() => setIsKitchen(true)}>
+                <li
+                  className="text-base text-textColor cursor-pointer hover:text-headingColor duration-100 transition-all ease-in-out"
+                  onClick={() => setIsMenu(false)}>
+                  Kitchens
+                </li>
+              </Link>
+              <Link to={'/services'}>
+                <li
+                  className="text-base text-textColor cursor-pointer hover:text-headingColor duration-100 transition-all ease-in-out"
+                  onClick={() => setIsMenu(false)}>
+                  Services
+                </li>
+              </Link>
+              <Link to={'/about'}>
+                <li
+                  className="text-base text-textColor cursor-pointer hover:text-headingColor duration-100 transition-all ease-in-out"
+                  onClick={() => setIsMenu(false)}>
+                  About Us
+                </li>
+              </Link>
+            </motion.ul>
+          )}
+          {isKitchen && (
+            <motion.ul
+              initial={{ opacity: 0, x: 200 }}
+              animate={{ opacity: 1, x: 0 }}
+              exit={{ opacity: 0, x: 200 }}
+              className="flex items-center gap-8">
+              <a href={'/'}>
+                <li
+                  className="text-base text-textColor cursor-pointer hover:text-headingColor duration-100 transition-all ease-in-out"
+                  onClick={() => setIsMenu(false)}>
+                  Home
+                </li>
+              </a>
+              <Link to={'/kitchens'} onClick={() => setIsKitchen(true)}>
+                <li
+                  className="text-base text-textColor cursor-pointer hover:text-headingColor duration-100 transition-all ease-in-out"
+                  onClick={() => setIsMenu(false)}>
+                  Order Summary
+                </li>
+              </Link>
+              <Link to={'/services'}>
+                <li
+                  className="text-base text-textColor cursor-pointer hover:text-headingColor duration-100 transition-all ease-in-out"
+                  onClick={() => setIsMenu(false)}>
+                  Notifications
+                </li>
+              </Link>
+              {isKitchen && (
+                <div className="relative flex items-center justify-center cursor-pointer">
+                  <MdShoppingBasket className="text-textColor text-2xl" />
+                  <div className="absolute -top-2 -right-2 w-5 h-5 rounded-full bg-cartNumBg flex items-center justify-center">
+                    <p className="text-xs text-white font-semibold">2</p>
+                  </div>
+                </div>
+              )}
+            </motion.ul>
+          )}
+
           <div className="relative">
             <motion.img
               whileTap={{ scale: 0.6 }}
               src={user && user ? user.photoURL : Avatar}
               alt="userprofile"
-              className="w-10 min-w-[40px] h-10 min-h-[40px] rounded-full"
+              className="w-10 min-w-[40px] h-10 min-h-[40px] rounded-full cursor-pointer"
               onClick={login}
             />
             {isMenu && (
@@ -108,19 +140,20 @@ const Header = () => {
                 animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0, scale: 0.6 }}
                 className="w-40 bg-gray-50 shadow-xl rounded-lg flex flex-col absolute top-10 right-0 ">
-                {user && user.email === 'dbitsolu@gmail.com' && (
-                  <Link to={'/createItem'}>
+                {user && (
+                  <Link to={'/my-account'}>
                     <p
                       className="px-4 py-1 flex items-center gap-3 cursor-pointer hover:bg-slate-100 transition-all duration-100 ease-in-out text-textColor text-text"
                       onClick={() => setIsMenu(false)}>
-                      New Item <FaPlus />
+                      <FaUser /> My Account
                     </p>
                   </Link>
                 )}
                 <p
                   className="px-4 py-1 flex items-center gap-3 cursor-pointer hover:bg-slate-100 transition-all duration-100 ease-in-out text-textColor text-text"
                   onClick={logout}>
-                  Logout <MdLogout />
+                  <MdLogout />
+                  Logout
                 </p>
               </motion.div>
             )}
@@ -137,31 +170,33 @@ const Header = () => {
           />
         </Link>
         <div className="relative flex items-center justify-center">
-            {user && (
-              <>
-                <MdShoppingBasket className="text-textColor text-2xl cursor-pointer" />
+          {isKitchen && (
+            <>
+              <MdShoppingBasket className="text-textColor text-2xl cursor-pointer" />
               <div className="absolute -top-2 -right-2 w-5 h-5 rounded-full bg-cartNumBg flex items-center justify-center">
                 <p className="text-xs text-white font-semibold">0</p>
               </div>
-              </>
-            )}
-          </div>
+            </>
+          )}
+        </div>
         <div className="relative">
           <motion.img
             whileTap={{ scale: 0.6 }}
             src={user ? user.photoURL : Avatar}
             alt="userprofile"
-            className="w-10 min-w-[40px] h-10 min-h-[40px] rounded-full"
+            className="w-10 min-w-[40px] h-10 min-h-[40px] rounded-full cursor-pointer"
             onClick={login}
           />
           {isMenu && (
-            <motion.div
+            <>
+            {!isKitchen && (
+              <motion.div
               initial={{ opacity: 0, scale: 0.6 }}
               animate={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 0, scale: 0.6 }}
-              className="w-40 bg-gray-50 shadow-xl rounded-lg flex flex-col absolute top-10 -right-2 ">
+              className="w-40 bg-gray-50 shadow-xl rounded-lg flex flex-col absolute top-15 -right-2 ">
               {user && user.email === 'dbitsolu@gmail.com' && (
-                <Link to={'/createItem'}>
+                <Link to={'/admin'}>
                   <p
                     className="px-4 py-2 flex items-center gap-3 cursor-pointer hover:bg-slate-100 transition-all duration-100 ease-in-out text-textColor text-text"
                     onClick={() => setIsMenu(false)}>
@@ -177,11 +212,11 @@ const Header = () => {
                     Home
                   </li>
                 </Link>
-                <Link to={'/kitchens'}>
+                <Link to={'/kitchens'} onClick={() => setIsKitchen(true)}>
                   <li
                     className="text-base px-4 py-2 text-textColor cursor-pointer hover:text-headingColor hover:bg-slate-100 duration-100 transition-all ease-in-out"
                     onClick={() => setIsMenu(!isMenu)}>
-                   Kitchens
+                    Kitchens
                   </li>
                 </Link>
                 <Link to={'/services'}>
@@ -198,6 +233,13 @@ const Header = () => {
                     About Us
                   </li>
                 </Link>
+                <Link to={'/my-account'}>
+                  <li
+                    className="text-base px-4 py-2 text-textColor cursor-pointer hover:text-headingColor hover:bg-slate-100 duration-100 transition-all ease-in-out"
+                    onClick={() => setIsMenu(!isMenu)}>
+                    My Account
+                  </li>
+                </Link>
               </ul>
               <p
                 className="m-2 py-2 flex items-center justify-center gap-3 rounded-md shadow-md cursor-pointer bg-gray-200 hover:bg-slate-300 transition-all duration-100 ease-in-out text-textColor text-text"
@@ -205,7 +247,56 @@ const Header = () => {
                 Logout <MdLogout />
               </p>
             </motion.div>
+            )}
+            
+            {isKitchen && (
+              <motion.div
+              initial={{ opacity: 0, scale: 0.6 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 0.6 }}
+              className="w-40 bg-gray-50 shadow-xl rounded-lg flex flex-col absolute top-10 -right-2 ">
+              <ul className="flex flex-col gap-2">
+                <Link to={'/'}>
+                  <li
+                    className="text-base px-4 py-2 text-textColor cursor-pointer hover:text-headingColor hover:bg-slate-100 duration-100 transition-all ease-in-out"
+                    onClick={() => setIsMenu(!isMenu)}>
+                    Home
+                  </li>
+                </Link>
+                <Link to={'/orders'} onClick={() => setIsKitchen(true)}>
+                  <li
+                    className="text-base px-4 py-2 text-textColor cursor-pointer hover:text-headingColor hover:bg-slate-100 duration-100 transition-all ease-in-out"
+                    onClick={() => setIsMenu(!isMenu)}>
+                    Order Summary
+                  </li>
+                </Link>
+                <Link to={'/notification'}>
+                  <li
+                    className="text-base px-4 py-2 text-textColor cursor-pointer hover:text-headingColor hover:bg-slate-100 duration-100 transition-all ease-in-out"
+                    onClick={() => setIsMenu(!isMenu)}>
+                    Notification
+                  </li>
+                </Link>
+                <Link to={'/my-account'}>
+                  <li
+                    className="text-base px-4 py-2 text-textColor cursor-pointer hover:text-headingColor hover:bg-slate-100 duration-100 transition-all ease-in-out"
+                    onClick={() => setIsMenu(!isMenu)}>
+                    My Account
+                  </li>
+                </Link>
+              </ul>
+              <p
+                className="m-2 py-2 flex items-center justify-center gap-3 rounded-md shadow-md cursor-pointer bg-gray-200 hover:bg-slate-300 transition-all duration-100 ease-in-out text-textColor text-text"
+                onClick={logout}>
+                Logout <MdLogout />
+              </p>
+            </motion.div>
+            )}
+            </>
           )}
+
+
+
         </div>
       </div>
     </header>

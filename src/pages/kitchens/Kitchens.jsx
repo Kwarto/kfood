@@ -1,8 +1,11 @@
 import React from 'react'
+import { KitchenHeader } from '../../components'
 
 const Kitchens = () => {
   return (
-    <div>Kitchens</div>
+    <div>
+      <KitchenHeader />
+    </div>
   )
 }
 

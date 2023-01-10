@@ -5,14 +5,14 @@ import staticImg4 from '../img/soup.jpg'
 export const heroData = [
     {
         id: 1,
-        name: 'Jollof Rice',
+        name: 'Fast Foods',
         desc: 'Jollof Rice & Chicken',
         price: 5.2,
         imgSrc: staticImg1
     },
     {
         id: 2,
-        name: 'Fruit Juice',
+        name: 'Fresh Fruits',
         desc: 'Fresh & Healthy Fruits',
         price: 5.2,
         imgSrc: staticImg2
@@ -26,8 +26,8 @@ export const heroData = [
     },
     {
         id: 4,
-        name: 'Local Soup Foods',
-        desc: 'Banku, Fufu, Emotuo',
+        name: 'Drinks & Beverages',
+        desc: 'All kinds of drinks',
         price: 5.2,
         imgSrc: staticImg4
     }
