@@ -6,6 +6,7 @@ import staticImg4 from '../img/soup.jpg'
 /********CAT**********/
 import catImg1 from '../img/banner.png'
 
+
 export const heroData = [
     {
         id: 1,
@@ -46,26 +47,69 @@ export const categoryData = [
     {
         id: 2,
         imgSrc: catImg1,
-        name: 'Fast Foods',
+        name: 'Fresh Fruits',
     },
     {
         id: 3,
         imgSrc: catImg1,
-        name: 'Fast Foods',
+        name: 'Drinks & Beverages',
     },
     {
         id: 4,
         imgSrc: catImg1,
-        name: 'Fast Foods',
+        name: 'Crispy Pastries',
     },
     {
         id: 5,
         imgSrc: catImg1,
-        name: 'Fast Foods',
+        name: 'Local Foods',
     },
     {
         id: 6,
         imgSrc: catImg1,
-        name: 'Fast Foods',
+        name: 'Salade',
     }
+]
+
+export const mostData = [
+    {
+        id: 1,
+        name: 'King of Kings',
+        desc: 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Assumenda numquam aspernatur laudantium labore, vitae aperiam cumque itaque officia.',
+        priceAt: 15,
+        imgSrc: staticImg2,
+        loc: 'Kwadaso Opt. Shell'
+    },
+    {
+        id: 2,
+        name: 'King of Kings',
+        desc: 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Assumenda numquam aspernatur laudantium labore, vitae aperiam cumque itaque officia.',
+        priceAt: 15,
+        imgSrc: staticImg2,
+        loc: 'Kwadaso Opt. Shell'
+    },
+    {
+        id: 3,
+        name: 'King of Kings',
+        desc: 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Assumenda numquam aspernatur laudantium labore, vitae aperiam cumque itaque officia.',
+        priceAt: 15,
+        imgSrc: staticImg2,
+        loc: 'Kwadaso Opt. Shell'
+    },
+    {
+        id: 4,
+        name: 'King of Kings',
+        desc: 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Assumenda numquam aspernatur laudantium labore, vitae aperiam cumque itaque officia.',
+        priceAt: 15,
+        imgSrc: staticImg2,
+        loc: 'Kwadaso Opt. Shell'
+    },
+    {
+        id: 5,
+        name: 'King of Kings',
+        desc: 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Assumenda numquam aspernatur laudantium labore, vitae aperiam cumque itaque officia.',
+        priceAt: 15,
+        imgSrc: staticImg2,
+        loc: 'Kwadaso Opt. Shell'
+    },
 ]
